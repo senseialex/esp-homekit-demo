@@ -46,6 +46,19 @@ void led_write(bool on) {
     gpio_write(led_gpio, on ? 0 : 1);
 }
 
+static void wifi_init() {
+    struct sdk_station_config wifi_config = {
+        .ssid = WIFI_SSID,
+        .password = WIFI_PASSWORD,
+    };
+
+    sdk_wifi_set_opmode(STATION_MODE);
+    sdk_wifi_station_set_config(&wifi_config);
+    sdk_wifi_station_connect();
+}
+
+
+
 void reset_configuration_task() {
     //Flash the LED first before we start the reset
     for (int i=0; i<3; i++) {
@@ -263,8 +276,9 @@ void user_init(void) {
     uart_set_baud(0, 115200);
 
     create_accessory_name();
-
+    wifi_init();
     wifi_config_init("lock", NULL, on_wifi_ready);
+
     gpio_init();
     lock_init();
 
