@@ -284,11 +284,11 @@ void user_init(void) {
     uart_set_baud(0, 115200);
     create_accessory_name();
 
-/*
+
     wifi_init();                                                   //testing
     homekit_server_init(&config);                                  //testing
- */
-    wifi_config_init("Sonoff Dimmer", NULL, on_wifi_ready);        //release
+
+    // wifi_config_init("Sonoff Dimmer", NULL, on_wifi_ready);        //release
 
     gpio_init();
     light_init();
