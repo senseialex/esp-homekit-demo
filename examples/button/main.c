@@ -100,9 +100,10 @@ void user_init(void) {
     uart_set_baud(0, 115200);
 
     wifi_init();
+
+    printf(BUTTON_PIN);
     if (button_create(BUTTON_PIN, button_callback)) {
         printf("Failed to initialize button\n");
     }
     homekit_server_init(&config);
 }
-
