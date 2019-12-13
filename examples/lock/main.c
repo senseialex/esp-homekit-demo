@@ -48,8 +48,8 @@ void led_write(bool on) {
 
 static void wifi_init() {
     struct sdk_station_config wifi_config = {
-        .ssid = WIFI_SSID,
-        .password = WIFI_PASSWORD,
+        .ssid = "velazquez_m2",
+        .password = "5646600103",
     };
 
     sdk_wifi_set_opmode(STATION_MODE);
