@@ -92,8 +92,8 @@ void reset_configuration() {
 
 static void wifi_init() {
     struct sdk_station_config wifi_config = {
-        .ssid = "velazquez_m2",
-        .password = "5646600103",
+      .ssid = WIFI_SSID,
+      .password = WIFI_PASSWORD,
     };
     sdk_wifi_set_opmode(STATION_MODE);
     sdk_wifi_station_set_config(&wifi_config);
